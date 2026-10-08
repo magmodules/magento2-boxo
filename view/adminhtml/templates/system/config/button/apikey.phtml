@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var Magmodules\Boxo\Block\Adminhtml\System\Config\Button\ApiTest $block */
+/** @var Magento\Framework\Escaper $escaper */
+?>
+<div class="mm-ui-result_apikey-wrapper"
+     data-mm-ui-endpoind-url="<?= $escaper->escapeUrl($block->getApiTestUrl()) ?>">
+    <div class="button-wrapper">
+        <?= /* @noEscape */ $block->getButtonHtml() ?>
+    </div>
+
+    <div id="mm-ui-result_apikey"></div>
+</div>

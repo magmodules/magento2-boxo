@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="boxo" translate="label" sortOrder="400" class="boxo-tab">
+            <label>BOXO</label>
+        </tab>
+        <section id="magmodules_boxo" translate="label" type="text" sortOrder="710" showInDefault="1"
+                 showInWebsite="1" showInStore="1">
+            <label>Reusable Packaging</label>
+            <tab>boxo</tab>
+            <resource>Magmodules_Boxo::config</resource>
+            <include path="Magmodules_Boxo::system/branding.xml"/>
+            <include path="Magmodules_Boxo::system/general.xml"/>
+            <include path="Magmodules_Boxo::system/checkout.xml"/>
+            <include path="Magmodules_Boxo::system/debug.xml"/>
+            <include path="Magmodules_Boxo::system/developer.xml"/>
+        </section>
+    </system>
+</config>

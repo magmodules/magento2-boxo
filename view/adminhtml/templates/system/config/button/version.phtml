@@ -1,0 +1,26 @@
+<?php
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var Magmodules\Boxo\Block\Adminhtml\System\Config\Button\VersionCheck $block */
+/** @var Magento\Framework\Escaper $escaper */
+?>
+<div class="mm-ui-result_version-wrapper"
+     data-mm-ui-endpoind-url="<?= $escaper->escapeUrl($block->getVersionCheckUrl()) ?>">
+    <span class="mm-ui-version"><?= $escaper->escapeHtml($block->getVersion()) ?></span>
+
+    <div class="button-wrapper">
+        <?= /* @noEscape */ $block->getButtonHtml() ?>
+    </div>
+
+    <div id="mm-ui-result_version"></div>
+
+    <div id="mm-ui-result_changelog-modal"
+         data-mm-ui-endpoind-url="<?= $escaper->escapeUrl($block->getChangeLogUrl()) ?>">
+        <div id="mm-ui-result_changelog">
+            <ul class="result"></ul>
+        </div>
+    </div>
+</div>

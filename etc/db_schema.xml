@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <!--
+        What the customer chose is stored here rather than derived from the cart,
+        because a packaging option can be free: with the disposable surcharge
+        disabled there is no line item to read the choice back from, and the
+        customer would silently fall back to the configured default on reload.
+
+        The charged amount stays an ordinary line item — see
+        Magmodules\Boxo\Setup\Patch\Data\CreateBoxoProducts — so no total
+        collectors are needed. A line item exists only when money is involved.
+
+        NULL means no choice was recorded, which is also the state of every order
+        placed before this extension was installed.
+    -->
+    <table name="quote" resource="checkout" engine="innodb">
+        <column xsi:type="varchar" name="boxo_packaging" nullable="true" length="32"
+                comment="BOXO packaging selected at checkout"/>
+    </table>
+
+    <table name="sales_order" resource="sales" engine="innodb">
+        <column xsi:type="varchar" name="boxo_packaging" nullable="true" length="32"
+                comment="BOXO packaging selected at checkout"/>
+    </table>
+
+    <table name="sales_order_grid" resource="sales" engine="innodb">
+        <column xsi:type="varchar" name="boxo_packaging" nullable="true" length="32"
+                comment="BOXO packaging selected at checkout"/>
+    </table>
+</schema>

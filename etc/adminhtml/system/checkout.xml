@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="checkout" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+           showInStore="1">
+        <label>Checkout</label>
+        <field id="default_selection" translate="label comment" type="select" sortOrder="1" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Default Packaging</label>
+            <comment>Option pre-selected at checkout. The customer can still choose the other one.</comment>
+            <source_model>Magmodules\Boxo\Model\Config\Source\DefaultSelection</source_model>
+            <config_path>magmodules_boxo/general/default_selection</config_path>
+        </field>
+        <field id="eligibility_heading" translate="label comment" type="text" sortOrder="2" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Reusable Packaging Rules</label>
+            <comment><![CDATA[Limit which products may be shipped in reusable packaging.<br>When the cart holds a single product that is not allowed, BOXO is not offered at all.<br>Products are marked in <b>Catalog &gt; Products</b> — filter the grid, select, then <b>Update Attributes</b>. Each mode reads its own flag, so switching back and forth does not lose a selection.]]></comment>
+            <frontend_model>Magmodules\Boxo\Block\Adminhtml\Design\Heading</frontend_model>
+        </field>
+        <field id="allow_mode" translate="label comment" type="select" sortOrder="3" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Allowed Products</label>
+            <comment model="Magmodules\Boxo\Model\Config\Comment\AllowMode"/>
+            <source_model>Magmodules\Boxo\Model\Config\Source\AllowMode</source_model>
+            <config_path>magmodules_boxo/general/allow_mode</config_path>
+        </field>
+        <field id="max_qty" translate="label comment" type="text" sortOrder="6" showInDefault="1"
+               showInWebsite="1" showInStore="1" canRestore="1">
+            <label>Maximum Products</label>
+            <comment>How many products fit in one reusable container. Carts holding more are offered disposable packaging only. Leave 0 for no limit.</comment>
+            <validate>validate-digits validate-zero-or-greater</validate>
+            <config_path>magmodules_boxo/general/max_qty</config_path>
+        </field>
+        <field id="surcharge_heading" translate="label comment" type="text" sortOrder="7" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Disposable Surcharge</label>
+            <comment><![CDATA[Charge a surcharge when the customer picks disposable packaging.<br>VAT is applied to this surcharge, unlike the refundable deposit on reusable packaging.]]></comment>
+            <frontend_model>Magmodules\Boxo\Block\Adminhtml\Design\Heading</frontend_model>
+        </field>
+        <field id="disposable_surcharge_enable" translate="label comment" type="select" sortOrder="8"
+               showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enable Surcharge</label>
+            <comment>When disabled, disposable packaging is offered free of charge.</comment>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>magmodules_boxo/general/disposable_surcharge_enable</config_path>
+        </field>
+        <field id="disposable_surcharge_amount" translate="label comment" type="text" sortOrder="9"
+               showInDefault="1" showInWebsite="1" showInStore="1"
+               canRestore="1">
+            <label>Surcharge Amount</label>
+            <comment model="Magmodules\Boxo\Model\Config\Comment\SurchargeAmount"/>
+            <validate>validate-number validate-zero-or-greater</validate>
+            <config_path>magmodules_boxo/general/disposable_surcharge_amount</config_path>
+            <depends>
+                <field id="disposable_surcharge_enable">1</field>
+            </depends>
+        </field>
+        <field id="info_heading" translate="label comment" type="text" sortOrder="20" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Information Link</label>
+            <comment><![CDATA[The info icon next to the reusable option links to a page explaining how returning the packaging works.<br>The hover-tooltip text is fixed and cannot be changed.]]></comment>
+            <frontend_model>Magmodules\Boxo\Block\Adminhtml\Design\Heading</frontend_model>
+        </field>
+        <field id="info_url" translate="label comment" type="text" sortOrder="21" showInDefault="1"
+               showInWebsite="1" showInStore="1">
+            <label>Information Page URL</label>
+            <comment><![CDATA[Optional link to your own BOXO information page. When empty, the info icon links to the BOXO return page (boxo.nu).]]></comment>
+            <config_path>magmodules_boxo/general/info_url</config_path>
+        </field>
+    </group>
+</include>

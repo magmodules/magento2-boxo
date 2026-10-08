@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <magmodules_boxo>
+            <general>
+                <active>0</active>
+                <sandbox_mode>0</sandbox_mode>
+                <default_selection>reusable</default_selection>
+                <allow_mode>all</allow_mode>
+                <max_qty>0</max_qty>
+                <disposable_surcharge_enable>0</disposable_surcharge_enable>
+                <disposable_surcharge_amount>0.25</disposable_surcharge_amount>
+            </general>
+            <debug>
+                <enable>0</enable>
+            </debug>
+        </magmodules_boxo>
+    </default>
+</config>

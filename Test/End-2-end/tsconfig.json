@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    // Playwright's own transpiler is lenient about these; tsc is not, and tsc is the gate that
+    // runs before a VPS run. Without esModuleInterop a plain `import path from 'path'` fails here
+    // while passing under Playwright, which makes the gate useless.
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "paths": {
+      "Services/*": ["support/services/*"],
+      "Helpers/*": ["support/helpers/*"],
+      "Pages/*": ["support/pages/*"],
+      "Fixtures/*": ["support/fixtures/*"]
+    }
+  }
+}

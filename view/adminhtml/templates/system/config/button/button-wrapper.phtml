@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var Magmodules\Boxo\Block\Adminhtml\System\Config\Button\CheckButtonWrapper $block */
+/** @var Magento\Framework\Escaper $escaper */
+
+use Magmodules\Boxo\Block\Adminhtml\System\Config\Button\DebugCheck;
+use Magmodules\Boxo\Block\Adminhtml\System\Config\Button\ErrorCheck;
+
+?>
+<div class="mm-ui-debug-button-wrapper">
+    <?= /* @noEscape */ $block->getLayout()->createBlock(DebugCheck::class)->toHtml(); ?>
+    <?= /* @noEscape */ $block->getLayout()->createBlock(ErrorCheck::class)->toHtml(); ?>
+</div>

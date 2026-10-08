@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Ship our own artwork for the packaging line instead of a "no image" box -->
+    <type name="Magento\Checkout\CustomerData\DefaultItem">
+        <plugin name="magmodules_boxo_packaging_thumbnail"
+                type="Magmodules\Boxo\Plugin\Checkout\PackagingThumbnail"/>
+    </type>
+    <type name="Magento\Checkout\Model\Cart\ImageProvider">
+        <plugin name="magmodules_boxo_packaging_cart_image"
+                type="Magmodules\Boxo\Plugin\Checkout\PackagingCartImage"/>
+    </type>
+    <!-- Cart page and anything else rendering a product image through a block -->
+    <type name="Magento\Catalog\Block\Product\ImageBuilder">
+        <plugin name="magmodules_boxo_packaging_image_builder"
+                type="Magmodules\Boxo\Plugin\Catalog\PackagingImageBuilder"/>
+    </type>
+
+    <!-- In-store pickup needs no shipping packaging -->
+    <type name="Magento\Checkout\Api\ShippingInformationManagementInterface">
+        <plugin name="magmodules_boxo_remove_packaging_for_pickup"
+                type="Magmodules\Boxo\Plugin\Checkout\RemovePackagingForPickup"
+                sortOrder="10"/>
+    </type>
+
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="magmodules_boxo_config_provider" xsi:type="object">Magmodules\Boxo\Model\Checkout\ConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

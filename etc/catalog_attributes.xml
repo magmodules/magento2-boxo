@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Catalog:etc/catalog_attributes.xsd">
+    <!--
+        Loaded onto the products behind quote items, so the eligibility check can
+        read the flags without fetching every cart product a second time.
+    -->
+    <group name="quote_item">
+        <attribute name="boxo_reusable_exclude"/>
+        <attribute name="boxo_reusable_include"/>
+    </group>
+</config>

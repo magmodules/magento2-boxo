@@ -1,0 +1,20 @@
+parameters:
+    level: 1
+    # The supported floor is PHP 8.1 (Magento 2.4.6 runs on it, and the matrix has a php81 leg).
+    # Without this, PHPStan analyses against whatever PHP the container happens to run, so an 8.2+
+    # construct — a readonly class, a typed constant — passes analysis and then fails at runtime on
+    # the oldest supported leg only.
+    phpVersion: 80100
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        - '#Variable \$block might not be defined.#'
+        - '#Undefined variable: \$block#'
+        # Magento generates factories at build time, outside the module tree, so
+        # they are not discoverable from the source alone.
+        - '#has unknown class Magento.+Factory as its type#'
+        - '#has invalid type Magento.+Factory#'
+    fileExtensions:
+        - php
+        - phtml
+    excludePaths:
+        - Test/*

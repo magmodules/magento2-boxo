@@ -1,0 +1,17 @@
+{
+    "quote": {
+        "column": {
+            "boxo_packaging": true
+        }
+    },
+    "sales_order": {
+        "column": {
+            "boxo_packaging": true
+        }
+    },
+    "sales_order_grid": {
+        "column": {
+            "boxo_packaging": true
+        }
+    }
+}

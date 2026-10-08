@@ -1,0 +1,71 @@
+<!--
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<!-- ko if: showOptions() -->
+<fieldset class="fieldset boxo-fieldset">
+    <legend class="legend boxo-legend">
+        <span data-bind="text: heading"></span>
+    </legend>
+
+    <div class="boxo-options" role="radiogroup">
+        <div class="field choice boxo-option" data-bind="css: { 'boxo-option-active': selection() === 'reusable' }">
+            <input type="radio"
+                   id="boxo-option-reusable"
+                   name="boxo_packaging"
+                   class="radio"
+                   value="reusable"
+                   data-bind="checked: selection"/>
+            <label class="label" for="boxo-option-reusable">
+                <span class="boxo-heart" aria-hidden="true"></span>
+                <span class="boxo-option-label" data-bind="text: reusableLabel"></span>
+            </label>
+            <a class="boxo-info"
+               target="_blank"
+               rel="noopener"
+               data-bind="attr: { href: infoUrl, 'aria-label': $t('More information about BOXO') }">
+                <span class="boxo-info-icon" aria-hidden="true">i</span>
+                <span class="boxo-tooltip" role="tooltip"
+                      data-bind="i18n: 'Yes, there is a return point near you! Drop off the packaging at a return point and immediately receive your deposit back. Click for more information.'"></span>
+            </a>
+            <!--
+                The deposit is named in the label rather than priced here: BOXO
+                sets the amount, and it is stated in full in the order summary.
+                Loaded as a background image so the brand colour stays in the
+                asset and the KO template stays free of inline SVG.
+            -->
+            <span class="boxo-option-mark boxo-logo" role="img"
+                  data-bind="attr: { 'aria-label': $t('BOXO') }"></span>
+        </div>
+
+        <div class="field choice boxo-option" data-bind="css: { 'boxo-option-active': selection() === 'disposable' }">
+            <input type="radio"
+                   id="boxo-option-disposable"
+                   name="boxo_packaging"
+                   class="radio"
+                   value="disposable"
+                   data-bind="checked: selection"/>
+            <label class="label" for="boxo-option-disposable">
+                <span class="boxo-option-label" data-bind="text: singleUseLabel"></span>
+            </label>
+            <!-- ko if: disposableAmount > 0 -->
+            <span class="boxo-option-mark boxo-option-price">
+                <span aria-hidden="true">+</span>
+                <span data-bind="text: disposableFormatted"></span>
+            </span>
+            <!-- /ko -->
+            <!-- ko ifnot: disposableAmount > 0 -->
+            <span class="boxo-option-mark boxo-option-price" data-bind="i18n: 'Free'"></span>
+            <!-- /ko -->
+        </div>
+    </div>
+
+    <!-- ko if: errorMessage() -->
+    <div class="message error boxo-error">
+        <div data-bind="text: errorMessage"></div>
+    </div>
+    <!-- /ko -->
+</fieldset>
+<!-- /ko -->

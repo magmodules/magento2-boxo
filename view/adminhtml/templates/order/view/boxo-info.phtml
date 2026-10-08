@@ -1,0 +1,27 @@
+<?php
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * @var \Magmodules\Boxo\Block\Adminhtml\Order\View\BoxoInfo $block
+ */
+?>
+<?php if ($block->isBoxoSelected()): ?>
+    <section class="admin__page-section order-boxo-info">
+        <div class="admin__page-section-title">
+            <span class="title"><?= $block->escapeHtml(__('BOXO Reusable Packaging')) ?></span>
+        </div>
+        <div class="admin__page-section-content">
+            <table class="admin__table-secondary">
+                <tr>
+                    <th><?= $block->escapeHtml(__('Packaging chosen')) ?></th>
+                    <td><?= $block->escapeHtml($block->getSelectionLabel()) ?></td>
+                </tr>
+                <tr>
+                    <th><?= $block->escapeHtml(__('Amount charged')) ?></th>
+                    <td><?= /* @noEscape */ $block->getAmountFormatted() ?></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+<?php endif; ?>

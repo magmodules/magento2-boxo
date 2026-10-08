@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Customer:etc/sections.xsd">
+    <!--
+        Selecting a packaging adds or removes a cart line item. Without this the
+        cached "cart" section keeps the old item count, so the mini-cart and the
+        summary disagree about what is in the basket.
+    -->
+    <action name="boxo/ajax/setSelection">
+        <section name="cart"/>
+    </action>
+</config>

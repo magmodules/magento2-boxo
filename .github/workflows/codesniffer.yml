@@ -1,0 +1,22 @@
+name: Codesniffer with the Magento Coding standard
+on:
+  pull_request:
+    paths:
+      - '**/*.php'
+      - '**/*.phtml'
+      - '**/*.xml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run codesniffer
+        run:
+          docker run
+          --volume $(pwd)/:/app/workdir
+          michielgerritsen/magento-coding-standard:latest
+          --standard=/app/workdir/phpcs.xml
+          --severity=6
+          -s

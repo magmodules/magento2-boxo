@@ -1,0 +1,41 @@
+//
+//  API key test
+//  ---------------------------------------------
+
+form[action*="magmodules_boxo"] {
+    .magmodules-boxo-variables();
+
+    .mm-ui-result_apikey-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        .loading-mask {
+            top: 0 !important;
+            height: 100% !important;
+        }
+
+        .button-wrapper {
+            position: relative;
+        }
+    }
+
+    #mm-ui-result_apikey {
+        .mm-ui-version {
+            margin-left: 0;
+            padding: 0;
+
+            white-space: normal;
+        }
+
+        .mm-ui-icon__thumbs-down {
+            color: @mm-ui-color7;
+        }
+
+        .mm-ui-icon__thumbs-up {
+            color: darken(@mm-ui-color6, 15%);
+        }
+    }
+}

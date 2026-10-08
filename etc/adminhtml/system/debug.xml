@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="debug" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0"
+           showInStore="0">
+        <label>Debug &amp; Logging</label>
+        <field id="logging_heading" translate="label comment" type="text" sortOrder="10" showInDefault="1"
+               showInWebsite="0" showInStore="0">
+            <label>Logging</label>
+            <comment><![CDATA[Enable to write debug records (API calls, availability checks, selection updates) into <code>var/log/boxo-debug.log</code>.<br>Errors are always logged into <code>var/log/boxo-error.log</code>.]]></comment>
+            <frontend_model>Magmodules\Boxo\Block\Adminhtml\Design\Heading</frontend_model>
+        </field>
+        <field id="enable" translate="label" type="select" sortOrder="11" showInDefault="1" showInWebsite="0"
+               showInStore="0">
+            <label>Debug Mode</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <config_path>magmodules_boxo/debug/enable</config_path>
+        </field>
+        <field id="check_button_wrapper" translate="label" type="button" sortOrder="100" showInDefault="1"
+               showInWebsite="0" showInStore="0">
+            <label/>
+            <frontend_model>Magmodules\Boxo\Block\Adminhtml\System\Config\Button\CheckButtonWrapper</frontend_model>
+        </field>
+        <field id="selftest_button" translate="label" type="button" sortOrder="101" showInDefault="1"
+               showInWebsite="0" showInStore="0">
+            <label/>
+            <frontend_model>Magmodules\Boxo\Block\Adminhtml\System\Config\Button\Selftest</frontend_model>
+        </field>
+    </group>
+</include>

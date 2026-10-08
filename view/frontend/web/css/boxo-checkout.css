@@ -1,0 +1,217 @@
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ *
+ * BOXO Reusable Packaging — Checkout styles.
+ *
+ * The BOXO-specific values below are declared as custom properties on
+ * .boxo-fieldset so retailers can align them with their own theme without
+ * touching this file. Example:
+ *
+ *   .boxo-fieldset { --boxo-accent: #c00; --boxo-radius: 0; }
+ */
+
+.boxo-fieldset {
+    --boxo-ink: #1b1f2b;
+    --boxo-muted: #8b93a7;
+    --boxo-accent: #00b578;
+    --boxo-accent-bg: #e8f9f1;
+    --boxo-heart: #ff8fd0;
+    --boxo-border: #e3e7ee;
+    --boxo-radius: 10px;
+
+    margin: 0 0 24px;
+    border: 0;
+    padding: 0;
+}
+
+.boxo-legend.boxo-legend {
+    display: block;
+    float: none;
+    width: 100%;
+    margin: 0 0 10px;
+    border: 0;
+    padding: 0;
+
+    color: var(--boxo-muted);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: .06em;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.boxo-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.boxo-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 14px 16px;
+
+    border: 1px solid var(--boxo-border);
+    border-radius: var(--boxo-radius);
+    background: #FFFFFF;
+    transition: border-color .15s ease, background-color .15s ease;
+}
+
+.boxo-option:hover {
+    border-color: var(--boxo-accent);
+}
+
+.boxo-option-active {
+    border-color: var(--boxo-accent);
+    background: var(--boxo-accent-bg);
+}
+
+/**
+ * The theme's radio is restyled rather than replaced, so keyboard focus and
+ * the native checked state keep working.
+ */
+.boxo-option > .radio {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: var(--boxo-accent);
+}
+
+.boxo-option > .label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+
+    color: var(--boxo-ink);
+    font-weight: 700;
+}
+
+.boxo-option > .label::before,
+.boxo-option > .label::after {
+    content: none;
+}
+
+/**
+ * Marks the reusable option. Loaded as a background image rather than inline
+ * markup so the brand color stays in the asset and the KO template stays plain.
+ */
+.boxo-heart {
+    flex: 0 0 auto;
+    width: 20px;
+    height: 18px;
+    background: url('../images/heart.svg') no-repeat center center;
+    background-size: contain;
+}
+
+.boxo-option-label {
+    color: inherit;
+}
+
+/**
+ * Right-hand side of the row: the BOXO mark on reusable, the surcharge on
+ * single-use. Pushed over by the auto margin so the info icon can sit directly
+ * behind the label text.
+ */
+.boxo-option-mark {
+    flex: 0 0 auto;
+    margin-left: auto;
+
+    color: var(--boxo-ink);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/**
+ * BOXO wordmark. The asset is a wide 1080x275 lockup, so the height is set and
+ * the width follows its own ratio rather than being boxed into a square.
+ */
+.boxo-logo {
+    display: block;
+    width: 62px;
+    height: 16px;
+    background: url('../images/boxo-logo.svg') no-repeat center right;
+    background-size: contain;
+}
+
+.boxo-info {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.boxo-info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid currentColor;
+
+    color: var(--boxo-muted);
+    font-family: Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 11px;
+    line-height: 1;
+    transition: color .15s ease, border-color .15s ease;
+}
+
+.boxo-info:hover .boxo-info-icon,
+.boxo-info:focus .boxo-info-icon {
+    color: var(--boxo-accent);
+    border-color: var(--boxo-accent);
+}
+
+/**
+ * Opens downward: the reusable option is the first row, so an upward tooltip
+ * would be clipped by the step container — and when it did fit it covered the
+ * neighbouring option, making its deposit text look like it belonged there.
+ */
+.boxo-tooltip {
+    display: none;
+    position: absolute;
+    left: 16px;
+    top: calc(100% + 8px);
+    z-index: 10;
+    width: 280px;
+    padding: 10px 12px;
+
+    background: rgba(27, 31, 43, 0.95);
+    color: #FFFFFF;
+    border-radius: var(--boxo-radius);
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.4;
+    text-align: left;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    pointer-events: none;
+}
+
+.boxo-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 12px;
+    border: 6px solid transparent;
+    border-bottom-color: rgba(27, 31, 43, 0.95);
+}
+
+.boxo-info:hover .boxo-tooltip,
+.boxo-info:focus .boxo-tooltip {
+    display: block;
+}
+
+.boxo-error {
+    margin-top: 12px;
+}

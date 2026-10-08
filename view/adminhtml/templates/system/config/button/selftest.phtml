@@ -1,0 +1,14 @@
+<?php
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var Magmodules\Boxo\Block\Adminhtml\System\Config\Button\Selftest $block */
+/** @var Magento\Framework\Escaper $escaper */
+?>
+<div id="mm-ui-result_test-modal" data-mm-ui-endpoind-url="<?= $escaper->escapeUrl($block->getSelftestUrl()) ?>">
+    <div id="mm-ui-result_test">
+        <ul class="result"></ul>
+    </div>
+</div>

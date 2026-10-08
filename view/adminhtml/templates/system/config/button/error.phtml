@@ -1,0 +1,24 @@
+<?php
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var Magmodules\Boxo\Block\Adminhtml\System\Config\Button\ErrorCheck $block */
+/** @var Magento\Framework\Escaper $escaper */
+?>
+<div id="mm-ui-result_error-modal"
+     data-mm-ui-endpoind-url="<?= $escaper->escapeUrl($block->getErrorCheckUrl()) ?>">
+    <div id="mm-ui-result_error">
+        <div class="result"></div>
+    </div>
+</div>
+
+<div class="mm-ui-button-wrapper">
+    <?= /* @noEscape */ $block->getButtonHtml() ?>
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" class="_error">
+        <path
+            d="M18,3A15,15,0,1,0,33,18,15.005,15.005,0,0,0,18,3Zm1.5,22.5h-3v-3h3Zm0-6h-3v-9h3Z"
+            transform="translate(-3 -3)" />
+    </svg>
+</div>

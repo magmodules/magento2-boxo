@@ -1,0 +1,74 @@
+//
+//  Header
+//  ---------------------------------------------
+
+form[action*="magmodules_boxo"] {
+    .magmodules-boxo-variables();
+
+    .mm-ui-header {
+        margin-bottom: 25px;
+        padding: 1.8rem 2rem 1.2rem;
+
+        border: 1px solid fade(@mm-ui-color3, 25%);
+        border-left: 4px solid @boxo-accent;
+        border-radius: 8px;
+
+        font-size: 1.3rem;
+        text-align: left;
+    }
+
+    .mm-ui-header-main {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 25px;
+    }
+
+    .mm-ui-header-text {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 10px;
+    }
+
+    //  Stands in for the logo until brand assets are available.
+    .boxo-wordmark {
+        color: @boxo-ink;
+        font-size: 2.4rem;
+        font-weight: 800;
+        letter-spacing: .12em;
+        line-height: 1;
+    }
+
+    .boxo-tagline {
+        color: @boxo-muted;
+        font-size: 1.4rem;
+    }
+
+    .mm-ui-header-actions {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 16px;
+    }
+
+    //  Deliberately understated: the extension is BOXO's, the build is ours.
+    .mm-ui-header-credit {
+        margin-top: 1.4rem;
+        padding-top: 1rem;
+        border-top: 1px solid fade(@mm-ui-color3, 25%);
+
+        color: @boxo-muted;
+        font-size: 1.1rem;
+    }
+
+    .boxo-credit-version {
+        margin-left: .4rem;
+
+        &:before {
+            content: '·';
+            margin-right: .6rem;
+        }
+    }
+}

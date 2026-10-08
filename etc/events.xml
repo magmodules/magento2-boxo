@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magmodules.eu. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <!--
+        Global on purpose: the line item must carry the configured packaging
+        label in the storefront, in REST/GraphQL carts and in admin orders.
+    -->
+    <event name="sales_quote_item_set_product">
+        <observer name="magmodules_boxo_set_packaging_item_name"
+                  instance="Magmodules\Boxo\Observer\Quote\SetPackagingItemName"/>
+        <observer name="magmodules_boxo_set_disposable_surcharge"
+                  instance="Magmodules\Boxo\Observer\Quote\SetDisposableSurcharge"/>
+    </event>
+</config>
